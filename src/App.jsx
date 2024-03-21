@@ -32,11 +32,11 @@ function App() {
             element={<Dashboard toDos={toDos} handleDelete={handleDelete} />}
           />
           <Route
-            path="/:itemId"
+            path="/items/:itemId"
             element={<ItemDetails toDos={toDos} handleDelete={handleDelete} />}
           />
           <Route path="/about" element={<About />} />
-          <Route path="/not-found" element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
       <Footer />

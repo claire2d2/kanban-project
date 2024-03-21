@@ -7,7 +7,7 @@ const List = ({ toDos, handleDelete }) => {
     <div className="List flex-column p-5">
       {toDos.map((toDo) => {
         return (
-          <Link to={`/${toDo.id}`} key={toDo.id}>
+          <Link to={`/items/${toDo.id}`} key={toDo.id}>
             <ListItem key={toDo.id} toDo={toDo} handleDelete={handleDelete} />
           </Link>
         );

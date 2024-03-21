@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -11,7 +12,10 @@ const NavBar = () => {
 
     <nav className="border-gray-200 bg-gray-900">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
+        <Link
+          to="/"
+          className="flex items-center space-x-3 rtl:space-x-reverse"
+        >
           <img
             src="https://flowbite.com/docs/images/logo.svg"
             className="h-8"
@@ -20,26 +24,26 @@ const NavBar = () => {
           <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
             Yes we Kanban!
           </span>
-        </a>
+        </Link>
 
         <div className="w-full md:block md:w-auto" id="navbar-default">
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border rounded-lg  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 bg-gray-800 md:bg-gray-900 border-gray-700">
             <li>
-              <a
-                href="#"
+              <Link
+                to="/"
                 className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:p-0  md:text-blue-500"
                 aria-current="page"
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                to="/about"
                 className="block py-2 px-3 rounded md:border-0  md:p-0 text-white md:hover:text-blue-500 hover:bg-gray-700 hover:text-white md:hover:bg-transparent"
               >
                 About
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

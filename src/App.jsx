@@ -36,7 +36,7 @@ function App() {
             element={<ItemDetails toDos={toDos} handleDelete={handleDelete} />}
           />
           <Route path="/about" element={<About />} />
-          <Route path="/*" element={<NotFound />} />
+          <Route path="/not-found" element={<NotFound />} />
         </Routes>
       </div>
       <Footer />

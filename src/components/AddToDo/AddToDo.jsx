@@ -28,10 +28,26 @@ const AddToDo = ({ statusType, filteredToDos, addListItem }) => {
     setPriority(e.currentTarget.value);
   };
 
+  // check if input is valid
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const validInput = () => {
+    if (!title || !description || !assignee || !dueBy || !priority) {
+      return false;
+    }
+    return true;
+  };
+
   // function to handle form behaviour
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (!validInput()) {
+      setErrorMessage("Please input all fields");
+      return;
+    }
+
+    setErrorMessage("");
     const newToDo = {
       id: crypto.randomUUID(),
       title,
@@ -84,6 +100,7 @@ const AddToDo = ({ statusType, filteredToDos, addListItem }) => {
         <option value="low">Low</option>
       </select>
       <button>+</button>
+      <p>{errorMessage}</p>
     </form>
   );
 };

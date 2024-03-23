@@ -5,14 +5,13 @@ import { Link } from "react-router-dom";
 
 const ListItem = ({ toDo, handleDelete }) => {
   return (
-    <div className="ListItem bg-slate-200 rounded-lg m-5 p-5 flex justify-between">
-      <div>
-        <h1 className="text-2xl mb-4">{toDo.title}</h1>
-        <p>Assignee: {toDo.assignee}</p>
-        <p>Status: {toDo.status}</p>
+    <div className="bg-blue-100 rounded-lg p-3 flex gap-2 justify-between w-72">
+      <div className="flex flex-col gap-2 items-start">
+        <h1 className="text-lg font-medium">{toDo.title}</h1>
+        <p className="text-sm font-light">{toDo.assignee}</p>
+        <Priority toDo={toDo} />
       </div>
       <div className="flex items-start gap-2">
-        <Priority toDo={toDo} />
         <Link to="/">
           <DeleteToDo toDo={toDo} handleDelete={handleDelete} />
         </Link>

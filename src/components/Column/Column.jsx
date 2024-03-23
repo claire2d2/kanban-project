@@ -12,17 +12,14 @@ const Column = ({ toDos, handleDelete, statusType }) => {
   };
 
   return (
-    <div className="m-2 bg-black ">
-      <h1 className="text-white">{statusType}</h1>
-      {/* // ! form is here! */}
-      <div className="bg-blue-100 m-5">
-        <AddToDo
-          statusType={statusType}
-          filteredToDos={filteredToDos}
-          addListItem={addListItem}
-        />
-        {/* //! form ends here */}
-      </div>
+    <div className="bg-blue-50 rounded-md m-2 p-3 w-80 flex flex-col gap-2">
+      <h1 className="text-2xl font-semibold">{statusType}</h1>
+      <hr />
+      {/* <AddToDo
+        statusType={statusType}
+        filteredToDos={filteredToDos}
+        addListItem={addListItem}
+      /> */}
       <List
         filteredToDos={list}
         handleDelete={handleDelete}

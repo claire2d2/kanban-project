@@ -61,7 +61,11 @@ const AddToDo = ({ statusType, filteredToDos, addListItem }) => {
   };
 
   return (
-    <form action="" onSubmit={handleSubmit}>
+    <form
+      action=""
+      onSubmit={handleSubmit}
+      className="flex flex-col gap-2 p-2 rounded bg-blue-200"
+    >
       <label htmlFor="task">Task</label>
       <input type="text" id="title" value={title} onChange={handleTitle} />
       <label htmlFor="description">Description</label>
@@ -95,11 +99,14 @@ const AddToDo = ({ statusType, filteredToDos, addListItem }) => {
         value={priority}
         onChange={handlePriority}
       >
+        <option value="" disabled>
+          Select a priority
+        </option>
         <option value="high">High</option>
         <option value="medium">Medium</option>
         <option value="low">Low</option>
       </select>
-      <button>+</button>
+      <button className="bg-blue-500 rounded h-10">Add</button>
       <p>{errorMessage}</p>
     </form>
   );

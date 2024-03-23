@@ -11,17 +11,19 @@ const ItemDetails = ({ toDos, handleDelete }) => {
 
   return (
     <div>
-      <div className="ListItem bg-slate-200 rounded-lg m-5 p-5 flex justify-between">
-        <div>
-          <h1 className="text-2xl mb-4">{currentToDo.title}</h1>
-          <p className="mb-2">{currentToDo.description}</p>
+      <div className="bg-blue-100 rounded-lg m-5 p-5 flex justify-between">
+        <div className="flex flex-col gap-2 items-start">
+          <div className="flex gap-3 items-center justify-center">
+            <h1 className="text-2xl">{currentToDo.title}</h1>
+            <Priority toDo={currentToDo} />
+          </div>
+          <p>{currentToDo.description}</p>
           <p>Assignee: {currentToDo.assignee}</p>
           <p>Status: {currentToDo.status}</p>
           <p>Created: {currentToDo.createdDate}</p>
           <p>Due by: {currentToDo.dueDate}</p>
         </div>
         <div className="flex items-start gap-2">
-          <Priority toDo={currentToDo} />
           <Link to="/">
             <DeleteToDo toDo={currentToDo} handleDelete={handleDelete} />
           </Link>

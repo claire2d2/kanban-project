@@ -23,9 +23,9 @@ function App() {
   }
 
   return (
-    <div className="App flex flex-col min-h-screen">
+    <div className="App flex flex-col max-h-screen">
       <NavBar />
-      <div className="pages mb-auto">
+      <div className="pages" style={{ height: "calc(100vh - 120px)" }}>
         <Routes>
           <Route
             path="/"

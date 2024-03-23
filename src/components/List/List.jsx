@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const List = ({ filteredToDos, handleDelete, statusType }) => {
   return (
-    <div className="List flex-column p-5">
+    <div className="flex flex-col gap-2 overflow-x-scroll">
       {filteredToDos.map((toDo) => {
         return (
           <Link to={`/items/${toDo.id}`} key={toDo.id}>

@@ -5,7 +5,7 @@ const DeleteToDo = ({ toDo, handleDelete }) => {
   const navigate = useNavigate();
   return (
     <button
-      className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-0.5 px-2.5 rounded"
+      className="bg-blue-500 text-white hover:bg-blue-700 hover:text-blue-50 font-medium py-0.5 px-2 rounded"
       onClick={() => handleDelete(toDo.id)}
     >
       Delete

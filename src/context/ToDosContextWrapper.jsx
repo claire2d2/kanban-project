@@ -16,6 +16,7 @@ function ToDosContextWrapper({ children }) {
     setToDos([...toDos, newToDo]);
     console.log(toDos);
   }
+
   return (
     <ToDosContext.Provider value={{ toDos, handleDelete, addListItem }}>
       {children}

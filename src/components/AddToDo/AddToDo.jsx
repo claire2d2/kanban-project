@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import useToDos from "../../context/useToDos";
 
-const AddToDo = ({ statusType }) => {
+const AddToDo = ({ statusType, hidden }) => {
   const { addListItem } = useToDos();
 
   const [title, setTitle] = useState("");
@@ -56,7 +56,7 @@ const AddToDo = ({ statusType }) => {
       title,
       description,
       assignee,
-      status,
+      status: statusType,
       priority,
       dueBy,
     };
@@ -68,6 +68,7 @@ const AddToDo = ({ statusType }) => {
       action=""
       onSubmit={handleSubmit}
       className="flex flex-col gap-2 p-2 rounded bg-blue-200"
+      hidden={hidden}
     >
       <label htmlFor="task">Task</label>
       <input type="text" id="title" value={title} onChange={handleTitle} />

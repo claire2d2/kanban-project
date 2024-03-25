@@ -8,7 +8,7 @@ const AddToDo = ({ statusType, hidden }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [assignee, setAssignee] = useState("");
-  const [dueBy, setDueBy] = useState("");
+  const [dueDate, setDueDate] = useState("");
   const [priority, setPriority] = useState("");
 
   const handleTitle = (e) => {
@@ -23,8 +23,8 @@ const AddToDo = ({ statusType, hidden }) => {
     setAssignee(e.currentTarget.value);
   };
 
-  const handleDueBy = (e) => {
-    setDueBy(e.currentTarget.value);
+  const handleDueDate = (e) => {
+    setDueDate(e.currentTarget.value);
   };
 
   const handlePriority = (e) => {
@@ -35,7 +35,7 @@ const AddToDo = ({ statusType, hidden }) => {
   const [errorMessage, setErrorMessage] = useState("");
 
   const validInput = () => {
-    if (!title || !description || !assignee || !dueBy || !priority) {
+    if (!title || !description || !assignee || !dueDate || !priority) {
       return false;
     }
     return true;
@@ -59,7 +59,7 @@ const AddToDo = ({ statusType, hidden }) => {
       status: statusType,
       priority,
       createdDate: new Date().toISOString().split("T")[0],
-      dueBy,
+      dueDate,
     };
     addListItem(newToDo);
   };
@@ -94,8 +94,8 @@ const AddToDo = ({ statusType, hidden }) => {
         type="date"
         id="dueBy"
         min={new Date().toISOString().split("T")[0]}
-        value={dueBy}
-        onChange={handleDueBy}
+        value={dueDate}
+        onChange={handleDueDate}
       />
       <label htmlFor="priority">Priority</label>
       <select

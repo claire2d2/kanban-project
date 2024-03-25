@@ -1,7 +1,9 @@
 import { useState } from "react";
 import "./App.css";
 
+// import context and data
 import toDosList from "./assets/data.json";
+import useToDos from "./context/useToDos";
 
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
@@ -15,26 +17,13 @@ import Dashboard from "./pages/Dashboard";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
-  const [toDos, setToDos] = useState(toDosList);
-
-  function handleDelete(id) {
-    const filteredToDos = toDos.filter((toDo) => toDo.id !== id);
-    setToDos(filteredToDos);
-  }
-
   return (
     <div className="App flex flex-col max-h-screen">
       <NavBar />
       <div className="pages" style={{ height: "calc(100vh - 120px)" }}>
         <Routes>
-          <Route
-            path="/"
-            element={<Dashboard toDos={toDos} handleDelete={handleDelete} />}
-          />
-          <Route
-            path="/items/:itemId"
-            element={<ItemDetails toDos={toDos} handleDelete={handleDelete} />}
-          />
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/items/:itemId" element={<ItemDetails />} />
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

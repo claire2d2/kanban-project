@@ -1,15 +1,17 @@
 import React from "react";
 import ListItem from "../ListItem/ListItem";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import useToDos from "../../context/useToDos";
 
-const List = ({ filteredToDos, handleDelete, statusType }) => {
+const List = ({ statusType }) => {
+  const { toDos } = useToDos();
+  const filterStatus = toDos.filter((toDo) => toDo.status === statusType);
   return (
     <div className="flex flex-col gap-2 overflow-x-scroll">
-      {filteredToDos.map((toDo) => {
+      {filterStatus.map((toDo) => {
         return (
           <Link to={`/items/${toDo.id}`} key={toDo.id}>
-            <ListItem key={toDo.id} toDo={toDo} handleDelete={handleDelete} />
+            <ListItem key={toDo.id} toDo={toDo} />
           </Link>
         );
       })}

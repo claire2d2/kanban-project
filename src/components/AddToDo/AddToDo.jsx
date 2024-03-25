@@ -1,7 +1,10 @@
 import React from "react";
 import { useState } from "react";
+import useToDos from "../../context/useToDos";
 
-const AddToDo = ({ statusType, filteredToDos, addListItem }) => {
+const AddToDo = ({ statusType }) => {
+  const { addListItem } = useToDos();
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [assignee, setAssignee] = useState("");

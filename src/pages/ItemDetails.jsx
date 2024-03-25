@@ -1,11 +1,12 @@
 import React from "react";
 import ListItem from "../components/ListItem/ListItem";
-import DeleteToDo from "../components/DeleteToDo/DeleteToDo";
+// import DeleteToDo from "../components/DeleteToDo/DeleteToDo";
 import Priority from "../components/Priority/Priority";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import useToDos from "../context/useToDos";
 
-const ItemDetails = ({ toDos, handleDelete }) => {
+const ItemDetails = () => {
+  const { toDos, handleDelete } = useToDos();
   let { itemId } = useParams();
   const currentToDo = toDos.find((toDo) => toDo.id === itemId);
 
@@ -24,10 +25,13 @@ const ItemDetails = ({ toDos, handleDelete }) => {
           <p>Due by: {currentToDo.dueDate}</p>
         </div>
         <div className="flex items-start gap-2">
-          <Link to="/">
-            <DeleteToDo toDo={currentToDo} handleDelete={handleDelete} />
-          </Link>
-          {/* rajouter back button */}
+          <button
+            onClick={() => {
+              handleDelete(currentToDo.id);
+            }}
+          >
+            Delete
+          </button>
         </div>
       </div>
     </div>

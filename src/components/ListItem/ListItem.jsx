@@ -1,9 +1,10 @@
 import React from "react";
-import DeleteToDo from "../DeleteToDo/DeleteToDo";
 import Priority from "../Priority/Priority";
 import { Link } from "react-router-dom";
+import useToDos from "../../context/useToDos";
 
-const ListItem = ({ toDo, handleDelete }) => {
+const ListItem = ({ toDo }) => {
+  const { handleDelete } = useToDos();
   return (
     <div className="bg-blue-100 rounded-lg p-3 flex gap-2 justify-between w-72">
       <div className="flex flex-col gap-2 items-start">
@@ -12,9 +13,11 @@ const ListItem = ({ toDo, handleDelete }) => {
         <Priority toDo={toDo} />
       </div>
       <div className="flex items-start gap-2">
-        <Link to="/">
-          <DeleteToDo toDo={toDo} handleDelete={handleDelete} />
-        </Link>
+        <div className="flex items-start gap-2">
+          <Link to="/">
+            <button onClick={() => handleDelete(toDo.id)}>Delete</button>
+          </Link>
+        </div>
       </div>
     </div>
   );

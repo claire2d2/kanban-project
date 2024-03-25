@@ -1,22 +1,20 @@
 import React from "react";
 import Column from "../components/Column/Column";
+import useToDos from "../context/useToDos";
 
-const Dashboard = ({ toDos, handleDelete }) => {
+const Dashboard = () => {
+  const { toDos, handleDelete } = useToDos();
   return (
     <div
       className="flex overflow-x-scroll overflow-y-hidden absolute top-70 w-screen p-2"
       style={{ height: "calc(100vh - 120px)" }}
     >
-      <Column toDos={toDos} handleDelete={handleDelete} statusType="To Do" />
-      <Column
-        toDos={toDos}
-        handleDelete={handleDelete}
-        statusType="In Progress"
-      />
-      <Column toDos={toDos} handleDelete={handleDelete} statusType="Done" />
-      <Column toDos={toDos} handleDelete={handleDelete} statusType="Done" />
-      <Column toDos={toDos} handleDelete={handleDelete} statusType="Done" />
-      <Column toDos={toDos} handleDelete={handleDelete} statusType="Done" />
+      <Column statusType="To Do" />
+      <Column statusType="In Progress" />
+      <Column statusType="Done" />
+      <Column statusType="Done" />
+      <Column statusType="Done" />
+      <Column statusType="Done" />
     </div>
   );
 };

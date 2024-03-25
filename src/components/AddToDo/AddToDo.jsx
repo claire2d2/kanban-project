@@ -68,58 +68,57 @@ const AddToDo = ({ statusType, hidden }) => {
     <form
       action=""
       onSubmit={handleSubmit}
-      className="flex flex-col gap-2 p-2 rounded-lg bg-blue-200"
+      className="flex flex-col gap-1 p-2 rounded-lg bg-blue-200"
       hidden={hidden}
     >
-      <div className="flex justify-between">
+      <div className="flex flex-col justify-between">
         <label htmlFor="task">Task</label>
         <input
           type="text"
           id="title"
-          className="rounded w-7/12"
+          className="rounded"
           value={title}
           onChange={handleTitle}
         />
       </div>
-      <div className="flex justify-between">
+      <div className="flex flex-col justify-between">
         <label htmlFor="description">Description</label>
         <input
           type="text"
           id="description"
-          className="rounded w-7/12"
+          className="rounded"
           value={description}
           onChange={handleDescription}
         />
       </div>
-      <div className="flex justify-between">
+      <div className="flex flex-col justify-between">
         <label htmlFor="assignee">Assignee</label>
         <input
           type="text"
           id="assignee"
-          className="rounded w-7/12"
+          className="rounded"
           value={assignee}
           onChange={handleAssignee}
         />
       </div>
-      <p>Status : {statusType}</p>
-      <p>Created on {new Date().toISOString().split("T")[0]}</p>
-      <div className="flex justify-between">
+
+      <div className="flex flex-col justify-between">
         <label htmlFor="dueBy">Due by</label>
         <input
           type="date"
           id="dueBy"
-          className="rounded w-7/12"
+          className="rounded"
           min={new Date().toISOString().split("T")[0]}
           value={dueDate}
           onChange={handleDueDate}
         />
       </div>
-      <div className="flex justify-between">
+      <div className="flex flex-col justify-between">
         <label htmlFor="priority">Priority</label>
         <select
           name="priority"
           id="priority"
-          className="rounded w-7/12"
+          className="rounded"
           value={priority}
           onChange={handlePriority}
         >
@@ -131,7 +130,10 @@ const AddToDo = ({ statusType, hidden }) => {
           <option value="low">Low</option>
         </select>
       </div>
-      <button className="bg-blue-500 rounded h-10">Add</button>
+      <p>Created on {new Date().toISOString().split("T")[0]}</p>
+      <button className="bg-blue-500 rounded h-10 text-white font-medium">
+        Add
+      </button>
       <p>{errorMessage}</p>
     </form>
   );

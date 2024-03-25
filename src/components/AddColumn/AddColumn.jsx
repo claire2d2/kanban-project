@@ -18,6 +18,7 @@ const AddColumn = ({ columns, setColumns }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // format with label (statusType) and random ID to match default state
     const newColumn = {
       label: title,
       id: crypto.randomUUID(),
@@ -27,7 +28,7 @@ const AddColumn = ({ columns, setColumns }) => {
       setErrorMessage("Please input a title");
       return;
     }
-
+    // add new Column to the columns array
     setColumns([...columns, newColumn]);
   };
 

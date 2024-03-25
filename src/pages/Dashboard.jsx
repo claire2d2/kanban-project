@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Column from "../components/Column/Column";
 import AddColumn from "../components/AddColumn/AddColumn";
+
+// default state for the columns
 const columnsDefault = [
   {
     label: "To Do",
@@ -10,6 +12,7 @@ const columnsDefault = [
   { label: "Done", id: crypto.randomUUID() },
 ];
 const Dashboard = () => {
+  // declaring useState for the columns (useful for adding and deleting columns)
   const [columns, setColumns] = useState(columnsDefault);
 
   return (

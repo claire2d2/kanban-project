@@ -5,10 +5,13 @@ import AddToDo from "../AddToDo/AddToDo";
 
 const Column = ({ statusType, columns, setColumns }) => {
   const [hidden, setHidden] = useState(false);
+  // set useState to define wether to show the Delete Column button
   const [listEmpty, setListEmpty] = useState(false);
 
+  // filtering the Columns array to remove the current column
   const filterColumns = columns.filter((col) => col.label !== statusType);
 
+  // function to remove column that we set in the List component
   const handleDeleteColumn = () => {
     setColumns(filterColumns);
   };

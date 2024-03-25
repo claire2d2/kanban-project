@@ -58,6 +58,7 @@ const AddToDo = ({ statusType, hidden }) => {
       assignee,
       status: statusType,
       priority,
+      createdDate: new Date().toISOString().split("T")[0],
       dueBy,
     };
     addListItem(newToDo);

@@ -18,7 +18,10 @@ const AddColumn = ({ columns, setColumns }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newColumn = title;
+    const newColumn = {
+      label: title,
+      id: crypto.randomUUID(),
+    };
 
     if (!validInput()) {
       setErrorMessage("Please input a title");

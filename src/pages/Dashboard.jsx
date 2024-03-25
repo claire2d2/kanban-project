@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import Column from "../components/Column/Column";
-import useToDos from "../context/useToDos";
 import AddColumn from "../components/AddColumn/AddColumn";
-
+const columnsDefault = [
+  {
+    label: "To Do",
+    id: crypto.randomUUID(),
+  },
+  { label: "In Progress", id: crypto.randomUUID() },
+  { label: "Done", id: crypto.randomUUID() },
+];
 const Dashboard = () => {
-  const [columns, setColumns] = useState(["To Do", "In Progress", "Done"]);
-  const { toDos, handleDelete } = useToDos();
+  const [columns, setColumns] = useState(columnsDefault);
 
   return (
     <div
@@ -13,7 +18,14 @@ const Dashboard = () => {
       style={{ height: "calc(100vh - 120px)" }}
     >
       {columns.map((col) => {
-        return <Column statusType={col} key={col} />;
+        return (
+          <Column
+            statusType={col.label}
+            key={col.id}
+            columns={columns}
+            setColumns={setColumns}
+          />
+        );
       })}
       <AddColumn columns={columns} setColumns={setColumns} />
     </div>

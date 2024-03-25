@@ -3,8 +3,15 @@ import List from "../List/List";
 import { useState } from "react";
 import AddToDo from "../AddToDo/AddToDo";
 
-const Column = ({ statusType }) => {
+const Column = ({ statusType, columns, setColumns }) => {
   const [hidden, setHidden] = useState(false);
+  const [listEmpty, setListEmpty] = useState(false);
+
+  const filterColumns = columns.filter((col) => col.label !== statusType);
+
+  const handleDeleteColumn = () => {
+    setColumns(filterColumns);
+  };
 
   const showAddToDo = () => {
     if (hidden) {
@@ -23,7 +30,11 @@ const Column = ({ statusType }) => {
       {/* <AddToDo statusType={statusType} hidden={hidden} /> */}
       <div className="flex flex-col gap-2 overflow-x-scroll">
         {hidden ? <AddToDo statusType={statusType} /> : null}
-        <List statusType={statusType} />
+        <List
+          statusType={statusType}
+          setListEmpty={setListEmpty}
+          handleDeleteColumn={handleDeleteColumn}
+        />
       </div>
     </div>
   );

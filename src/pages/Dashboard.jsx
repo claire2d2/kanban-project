@@ -15,10 +15,6 @@ const Dashboard = () => {
       {columns.map((col) => {
         return <Column statusType={col} key={col} />;
       })}
-      {/* <Column statusType="To Do" />
-      <Column statusType="In Progress" />
-      <Column statusType="Done" /> */}
-      <button>Add column</button>
       <AddColumn columns={columns} setColumns={setColumns} />
     </div>
   );

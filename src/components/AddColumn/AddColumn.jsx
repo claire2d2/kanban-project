@@ -2,9 +2,17 @@ import React, { useState } from "react";
 
 const AddColumn = ({ columns, setColumns }) => {
   const [title, setTitle] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleTitle = (e) => {
     setTitle(e.currentTarget.value);
+  };
+
+  const validInput = () => {
+    if (!title) {
+      return false;
+    }
+    return true;
   };
 
   const handleSubmit = (e) => {
@@ -12,15 +20,35 @@ const AddColumn = ({ columns, setColumns }) => {
 
     const newColumn = title;
 
+    if (!validInput()) {
+      setErrorMessage("Please input a title");
+      return;
+    }
+
     setColumns([...columns, newColumn]);
   };
 
   return (
-    <form action="" className="bg-slate-200">
+    <form
+      action=""
+      className="bg-blue-50 rounded-md m-2 p-3 min-w-80 flex flex-col gap-10 items-center"
+    >
       <label htmlFor="title">
-        <input type="text" id="title" value={title} onChange={handleTitle} />
+        <input
+          type="text"
+          id="title"
+          className="text-2xl font-semibold rounded px-2"
+          value={title}
+          onChange={handleTitle}
+        />
       </label>
-      <button onClick={handleSubmit}>Add</button>
+      <button
+        onClick={handleSubmit}
+        className="bg-blue-500 text-white hover:bg-blue-700 hover:text-blue-50 font-medium py-1.5 px-5 rounded"
+      >
+        Add
+      </button>
+      <p>{errorMessage}</p>
     </form>
   );
 };

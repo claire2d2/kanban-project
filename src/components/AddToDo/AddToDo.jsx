@@ -85,7 +85,7 @@ const AddToDo = ({ statusType, hidden }) => {
         <input
           type="text"
           id="title"
-          className="rounded"
+          className="rounded px-1"
           value={title}
           onChange={handleTitle}
         />
@@ -95,7 +95,7 @@ const AddToDo = ({ statusType, hidden }) => {
         <input
           type="text"
           id="description"
-          className="rounded"
+          className="rounded px-1"
           value={description}
           onChange={handleDescription}
         />
@@ -105,7 +105,7 @@ const AddToDo = ({ statusType, hidden }) => {
         <input
           type="text"
           id="assignee"
-          className="rounded"
+          className="rounded px-1"
           value={assignee}
           onChange={handleAssignee}
         />
@@ -116,7 +116,7 @@ const AddToDo = ({ statusType, hidden }) => {
         <input
           type="date"
           id="dueBy"
-          className="rounded"
+          className="rounded px-1"
           min={new Date().toISOString().split("T")[0]}
           value={dueDate}
           onChange={handleDueDate}
@@ -127,16 +127,16 @@ const AddToDo = ({ statusType, hidden }) => {
         <select
           name="priority"
           id="priority"
-          className="rounded"
+          className="rounded px-1"
           value={priority}
           onChange={handlePriority}
         >
           <option value="" disabled>
             Select a priority
           </option>
-          <option value="high">High</option>
-          <option value="medium">Medium</option>
-          <option value="low">Low</option>
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
         </select>
       </div>
       <p>Created on {new Date().toISOString().split("T")[0]}</p>

@@ -1,5 +1,6 @@
 import React from "react";
 import ListItem from "../components/ListItem/ListItem";
+import { Link } from "react-router-dom";
 // import DeleteToDo from "../components/DeleteToDo/DeleteToDo";
 import Priority from "../components/Priority/Priority";
 import { useParams } from "react-router-dom";
@@ -7,8 +8,8 @@ import useToDos from "../context/useToDos";
 
 const ItemDetails = () => {
   const { toDos, handleDelete } = useToDos();
-  let { itemId } = useParams();
-  const currentToDo = toDos.find((toDo) => toDo.id === itemId);
+  let params = useParams();
+  const currentToDo = toDos.find((toDo) => toDo.id === params.itemId);
 
   return (
     <div>
@@ -29,6 +30,7 @@ const ItemDetails = () => {
             onClick={() => {
               handleDelete(currentToDo.id);
             }}
+            className="bg-red-500 text-red-50 hover:bg-red-600 hover:text-red-100 px-2 py-0.5 rounded"
           >
             Delete
           </button>

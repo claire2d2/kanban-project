@@ -2,14 +2,19 @@ import React from "react";
 import List from "../List/List";
 import { useState } from "react";
 import AddToDo from "../AddToDo/AddToDo";
+import { useDroppable } from "@dnd-kit/core";
 
-const Column = ({ statusType, columns, setColumns }) => {
+const Column = ({ statusType, columns, setColumns, id }) => {
   const [hidden, setHidden] = useState(false);
   // set useState to define wether to show the Delete Column button
   const [listEmpty, setListEmpty] = useState(false);
 
   // filtering the Columns array to remove the current column
   const filterColumns = columns.filter((col) => col.label !== statusType);
+
+  const { setNodeRef } = useDroppable({
+    id: id,
+  });
 
   // function to remove column that we set in the List component
   const handleDeleteColumn = () => {
@@ -24,7 +29,10 @@ const Column = ({ statusType, columns, setColumns }) => {
     }
   };
   return (
-    <div className="bg-blue-50 rounded-md m-2 p-3 min-w-80 flex flex-col gap-2">
+    <div
+      className="bg-blue-50 rounded-md m-2 p-3 min-w-80 flex flex-col gap-2"
+      ref={setNodeRef}
+    >
       <div className="flex justify-between pr-3">
         <h1 className="text-2xl font-semibold">{statusType}</h1>{" "}
         <button onClick={() => showAddToDo()}>+</button>

@@ -15,11 +15,7 @@ const List = ({ statusType, setListEmpty, handleDeleteColumn }) => {
   return (
     <div className="flex flex-col gap-2">
       {filteredToDos.map((toDo) => {
-        return (
-          <Link to={`/items/${toDo.id}`} key={toDo.id}>
-            <ListItem key={toDo.id} toDo={toDo} />
-          </Link>
-        );
+        return <ListItem key={toDo.id} toDo={toDo} />;
       })}
     </div>
   );

@@ -1,12 +1,5 @@
-import { useState } from "react";
 import "./App.css";
-
-// import context and data
-import toDosList from "./assets/data.json";
-import useToDos from "./context/useToDos";
-
-import NavBar from "./components/NavBar/NavBar";
-import Footer from "./components/Footer/Footer";
+import Layout from "./pages/Layout";
 
 // import pages
 import About from "./pages/About";
@@ -19,16 +12,16 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   return (
     <div className="App flex flex-col max-h-screen">
-      <NavBar />
-      <div className="pages" style={{ height: "calc(100vh - 120px)" }}>
+      <div className="pages">
         <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/items/:itemId" element={<ItemDetails />} />
-          <Route path="/about" element={<About />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Dashboard />} />
+            <Route path="items/:itemId" element={<ItemDetails />} />
+            <Route path="about" element={<About />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
         </Routes>
       </div>
-      <Footer />
     </div>
   );
 }

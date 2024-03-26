@@ -30,6 +30,12 @@ const AddColumn = ({ columns, setColumns }) => {
     }
     // add new Column to the columns array
     setColumns([...columns, newColumn]);
+
+    resetInputs();
+  };
+
+  const resetInputs = () => {
+    setTitle("");
   };
 
   return (

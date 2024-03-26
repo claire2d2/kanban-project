@@ -8,8 +8,8 @@ const AddToDo = ({ statusType, hidden }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [assignee, setAssignee] = useState("");
-  const [dueDate, setDueDate] = useState("");
-  const [priority, setPriority] = useState("");
+  const [dueDate, setDueDate] = useState(null);
+  const [priority, setPriority] = useState(null);
 
   const handleTitle = (e) => {
     setTitle(e.currentTarget.value);
@@ -62,6 +62,15 @@ const AddToDo = ({ statusType, hidden }) => {
       dueDate,
     };
     addListItem(newToDo);
+    resetInputs();
+  };
+
+  const resetInputs = () => {
+    setTitle("");
+    setDescription("");
+    setAssignee("");
+    setDueBy(null);
+    setPriority(null);
   };
 
   return (

@@ -1,15 +1,14 @@
-import React from "react";
 import { useState } from "react";
 import useToDos from "../../context/useToDos";
 
-const AddToDo = ({ statusType, hidden }) => {
+const AddToDo = ({ statusType, hidden, setHidden }) => {
   const { addListItem } = useToDos();
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [assignee, setAssignee] = useState("");
-  const [dueDate, setDueDate] = useState(null);
-  const [priority, setPriority] = useState(null);
+  const [dueDate, setDueDate] = useState("");
+  const [priority, setPriority] = useState("-1");
 
   const handleTitle = (e) => {
     setTitle(e.currentTarget.value);
@@ -63,25 +62,26 @@ const AddToDo = ({ statusType, hidden }) => {
     };
     addListItem(newToDo);
     resetInputs();
+    setHidden(false);
   };
 
   const resetInputs = () => {
     setTitle("");
     setDescription("");
     setAssignee("");
-    setDueBy(null);
-    setPriority(null);
+    setDueDate("");
+    setPriority("-1");
   };
 
   return (
     <form
       action=""
       onSubmit={handleSubmit}
-      className="flex flex-col gap-1 p-2 rounded-lg bg-blue-200"
+      className="flex flex-col gap-1 p-2 rounded-lg bg-blue-100"
       hidden={hidden}
     >
       <div className="flex flex-col justify-between">
-        <label htmlFor="task">Task</label>
+        <label htmlFor="title">Task</label>
         <input
           type="text"
           id="title"
@@ -131,7 +131,7 @@ const AddToDo = ({ statusType, hidden }) => {
           value={priority}
           onChange={handlePriority}
         >
-          <option value="" disabled>
+          <option value="-1" disabled>
             Select a priority
           </option>
           <option value="High">High</option>
@@ -140,7 +140,7 @@ const AddToDo = ({ statusType, hidden }) => {
         </select>
       </div>
       <p>Created on {new Date().toISOString().split("T")[0]}</p>
-      <button className="bg-blue-500 rounded h-10 text-white font-medium">
+      <button className="bg-blue-500 rounded h-10 text-white hover:bg-blue-600 hover:text-blue-50 font-medium">
         Add
       </button>
       <p>{errorMessage}</p>

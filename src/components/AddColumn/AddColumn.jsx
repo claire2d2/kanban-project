@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const AddColumn = ({ columns, setColumns }) => {
   const [title, setTitle] = useState("");
@@ -54,7 +54,7 @@ const AddColumn = ({ columns, setColumns }) => {
       </label>
       <button
         onClick={handleSubmit}
-        className="bg-blue-500 text-white hover:bg-blue-700 hover:text-blue-50 font-medium py-1.5 px-5 rounded"
+        className="bg-blue-500 text-white hover:bg-blue-600 hover:text-blue-50 font-medium py-1.5 px-5 rounded"
       >
         Add
       </button>

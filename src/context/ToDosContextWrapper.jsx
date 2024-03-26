@@ -1,7 +1,6 @@
 import { createContext, useState } from "react";
-import ToDosList from "../assets/data.json";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import ToDosList from "../assets/data.json";
 
 export const ToDosContext = createContext();
 

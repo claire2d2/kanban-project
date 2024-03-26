@@ -1,9 +1,7 @@
-import React from "react";
-import ListItem from "../components/ListItem/ListItem";
-import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+
 // import DeleteToDo from "../components/DeleteToDo/DeleteToDo";
 import Priority from "../components/Priority/Priority";
-import { useParams } from "react-router-dom";
 import useToDos from "../context/useToDos";
 
 const ItemDetails = () => {

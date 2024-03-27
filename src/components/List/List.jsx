@@ -8,7 +8,6 @@ const List = ({ statusType, setListEmpty, handleDeleteColumn }) => {
 
   // if list is empty, set state of listEmpty to true and make Delete Column button appear
   if (filteredToDos.length === 0) {
-    setListEmpty(true);
     return (
       <button
         onClick={() => handleDeleteColumn()}

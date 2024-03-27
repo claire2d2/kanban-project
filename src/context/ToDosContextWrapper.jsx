@@ -8,6 +8,16 @@ function ToDosContextWrapper({ children }) {
   const navigate = useNavigate();
   const [toDos, setToDos] = useState(ToDosList);
 
+  // default state for the columns
+  const columnsDefault = [
+    { label: "To Do", id: crypto.randomUUID() },
+    { label: "In Progress", id: crypto.randomUUID() },
+    { label: "Done", id: crypto.randomUUID() },
+  ];
+
+  // declaring useState for the columns (useful for adding and deleting columns)
+  const [columns, setColumns] = useState(columnsDefault);
+
   function handleDelete(id) {
     const filteredToDos = toDos.filter((toDo) => toDo.id !== id);
     navigate("/");
@@ -22,7 +32,15 @@ function ToDosContextWrapper({ children }) {
 
   return (
     <ToDosContext.Provider
-      value={{ toDos, handleDelete, addListItem, setToDos }}
+      value={{
+        toDos,
+        setToDos,
+        handleDelete,
+        addListItem,
+        columns,
+        setColumns,
+        columnsDefault,
+      }}
     >
       {children}
     </ToDosContext.Provider>

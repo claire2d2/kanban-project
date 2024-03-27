@@ -1,10 +1,9 @@
-import { useState } from "react";
 import Column from "../components/Column/Column";
 import AddColumn from "../components/AddColumn/AddColumn";
 import useToDos from "../context/useToDos";
 
-const Dashboard = ({ columnsDefault, columns, setColumns }) => {
-  const { setToDos, toDos } = useToDos();
+const Dashboard = () => {
+  const { setToDos, columns, setColumns } = useToDos();
 
   function handleOnDragOver(e) {
     e.preventDefault();

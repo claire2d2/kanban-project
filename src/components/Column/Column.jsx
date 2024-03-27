@@ -30,7 +30,7 @@ const Column = ({
 
   return (
     <div
-      className="bg-blue-50 rounded-md m-2 p-3 min-w-80 flex flex-col gap-2"
+      className="bg-blue-50 rounded-md m-2 p-3 w-80 flex flex-col gap-2"
       onDrop={(e) => handleOnDrop(e, statusType)}
       onDragOver={handleOnDragOver}
     >

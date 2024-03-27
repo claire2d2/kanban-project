@@ -41,20 +41,20 @@ const AddColumn = ({ columns, setColumns }) => {
   return (
     <form
       action=""
-      className="bg-blue-50 rounded-md m-2 p-3 min-w-80 flex flex-col gap-10 items-center"
+      className="bg-blue-50 rounded-md m-2 p-3 w-80 flex flex-col gap-4"
     >
       <label htmlFor="title">
         <input
           type="text"
           id="title"
-          className="text-2xl font-semibold rounded px-2"
+          className="text-2xl font-semibold rounded px-2 w-full"
           value={title}
           onChange={handleTitle}
         />
       </label>
       <button
         onClick={handleSubmit}
-        className="bg-blue-500 text-white hover:bg-blue-600 hover:text-blue-50 font-medium py-1.5 px-5 rounded"
+        className="bg-blue-500 text-white hover:bg-blue-600 hover:text-blue-50 font-medium py-1.5 px-2 rounded"
       >
         Add
       </button>

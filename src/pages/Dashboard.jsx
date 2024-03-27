@@ -3,19 +3,7 @@ import Column from "../components/Column/Column";
 import AddColumn from "../components/AddColumn/AddColumn";
 import useToDos from "../context/useToDos";
 
-// default state for the columns
-const columnsDefault = [
-  { label: "To Do", id: crypto.randomUUID() },
-  { label: "In Progress", id: crypto.randomUUID() },
-  { label: "Done", id: crypto.randomUUID() },
-];
-
-const Dashboard = () => {
-  // declaring useState for the columns (useful for adding and deleting columns)
-  const [columns, setColumns] = useState(columnsDefault);
-
-  console.log(columns);
-
+const Dashboard = ({ columnsDefault, columns, setColumns }) => {
   const { setToDos, toDos } = useToDos();
 
   function handleOnDragOver(e) {
